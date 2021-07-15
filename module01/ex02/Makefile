@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra
 
 NAME = Zombies
 
-SRC = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

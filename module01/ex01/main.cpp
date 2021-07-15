@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 02:05:02 by mdelwaul          #+#    #+#             */
-/*   Updated: 2021/07/15 23:39:19 by krain            ###   ########.fr       */
+/*   Created: 2021/07/15 23:36:34 by krain             #+#    #+#             */
+/*   Updated: 2021/07/16 00:30:57 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iomanip>
-#include <iostream>
+#include "Zombie.hpp"
 
-class Contact
+Zombie	*zombieHorde(int N, std::string name);
+
+int         main(void)
 {
-	private:
-		std::string firstname;
-		std::string lastname;
-		std::string nickname;
-		std::string phone_number;
-		std::string darkest_secret;
-		bool	used;
+	Zombie		*Horde = zombieHorde(10, "Bob");
 
-	public:
-		Contact();
-		~Contact();
-		void	addNew(void);
-		bool	isUsed(void);
-		void	shortPrint(int i);
-		void	fullPrint(void);
-};
+	for (int i = 0; i < 10; i++)
+		Horde[i].announce();
+	delete [] Horde;
+}

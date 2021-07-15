@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelwaul <mdelwaul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 02:16:18 by mdelwaul          #+#    #+#             */
-/*   Updated: 2021/07/12 03:18:16 by mdelwaul         ###   ########.fr       */
+/*   Updated: 2021/07/15 23:54:21 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 Contact::Contact()
 {
-	this->used = false;
+	used = false;
+}
+
+Contact::~Contact()
+{
 }
 
 bool	Contact::isUsed(void)
