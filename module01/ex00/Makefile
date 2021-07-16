@@ -2,7 +2,7 @@ CXX = clang++
 
 CXXFLAGS = -Wall -Werror -Wextra
 
-NAME = Zombies
+NAME = Module00
 
 SRC = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 
