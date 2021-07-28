@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/16 03:27:44 by krain             #+#    #+#             */
-/*   Updated: 2021/07/19 20:06:58 by krain            ###   ########.fr       */
+/*   Created: 2021/07/19 20:29:41 by krain             #+#    #+#             */
+/*   Updated: 2021/07/19 20:47:04 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
 #include <string>
 #include <iomanip>
 #include <iostream>
 #include <fstream>
 
-class Sed
+class Karen
 {
 	private:
-		std::ifstream	_file;
-		std::string		_s1;
-		std::string		_s2;
-		std::string		_fileName;
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
 	public:
-		Sed(std::string fileName, std::string s1, std::string s2);
-		~Sed();
-		void replace(void);
-		bool isOpen(void);
+		Karen();
+		~Karen();
+		void complain(std::string level);
 };
-
-#endif

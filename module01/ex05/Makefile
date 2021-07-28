@@ -1,17 +1,20 @@
-CC = clang++
+CC = @clang++
 
 NAME = Module00
 
-RM = rm -f
+RM = @rm -f
 
-SRCS = main.cpp sed.cpp
+SRCS = main.cpp Karen.cpp
 
 OBJS = $(SRCS:.cpp=.o)
+
+.cpp.o:
+	$(CC) -c $<
 
 all:	$(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -fsanitize=address
+	$(CC) -o $(NAME) $(OBJS)
 
 clean:
 	$(RM) $(OBJS)

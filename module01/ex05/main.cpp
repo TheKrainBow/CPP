@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/16 03:27:44 by krain             #+#    #+#             */
-/*   Updated: 2021/07/19 20:06:58 by krain            ###   ########.fr       */
+/*   Created: 2021/07/16 03:10:57 by krain             #+#    #+#             */
+/*   Updated: 2021/07/19 20:47:17 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
 #include <string>
 #include <iomanip>
 #include <iostream>
 #include <fstream>
+#include "Karen.hpp"
 
-class Sed
+int			main(int ac, char **av)
 {
-	private:
-		std::ifstream	_file;
-		std::string		_s1;
-		std::string		_s2;
-		std::string		_fileName;
-	public:
-		Sed(std::string fileName, std::string s1, std::string s2);
-		~Sed();
-		void replace(void);
-		bool isOpen(void);
-};
+	Karen karouninette;
 
-#endif
+}
