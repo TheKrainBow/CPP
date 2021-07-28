@@ -12,6 +12,7 @@
 
 #include "Karen.hpp"
 
+
 Karen::Karen() {}
 Karen::~Karen() {}
 
