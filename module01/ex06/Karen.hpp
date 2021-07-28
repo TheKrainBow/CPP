@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/16 03:10:57 by krain             #+#    #+#             */
-/*   Updated: 2021/07/19 20:47:17 by krain            ###   ########.fr       */
+/*   Created: 2021/07/19 20:29:41 by krain             #+#    #+#             */
+/*   Updated: 2021/07/19 20:47:04 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 #include <iomanip>
 #include <iostream>
 #include <fstream>
-#include "Karen.hpp"
 
-int			main(int ac, char **av)
+class Karen
 {
-	Karen karouninette;
-
-
-	karouninette.complain("INFO");
-}
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+	public:
+		Karen();
+		~Karen();
+		void complain(std::string level);
+};

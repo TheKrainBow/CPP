@@ -20,6 +20,11 @@ int			main(int ac, char **av)
 {
 	Karen karouninette;
 
-
-	karouninette.complain("INFO");
+	if (ac != 2)
+	{
+		std::cout << "[ Probablement plainte de problèmes insignifiants ]" << std::endl;
+		return (1);
+	}
+	karouninette.complain(av[1]);
+	return (0);
 }

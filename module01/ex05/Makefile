@@ -1,6 +1,6 @@
 CC = @clang++
 
-NAME = Module00
+NAME = Module01
 
 RM = @rm -f
 

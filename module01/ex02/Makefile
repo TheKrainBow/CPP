@@ -2,7 +2,7 @@ CXX = clang++
 
 CXXFLAGS = -Wall -Werror -Wextra
 
-NAME = Module00
+NAME = Module01
 
 SRC = main.cpp
 
