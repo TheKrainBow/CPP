@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/02 14:41:21 by magostin          #+#    #+#             */
+/*   Updated: 2021/08/02 16:08:08 by magostin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "FragTrap.hpp"
+
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
+{
+	std::cout << name << "'s FragTrap constructor called" << std::endl;
+}
+
+FragTrap::~FragTrap()
+{
+	std::cout << _name << "'s FragTrap destructor called" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void)
+{
+	std::cout << _name << " is asking for a High Five, but no ones care.." << std::endl;
+}

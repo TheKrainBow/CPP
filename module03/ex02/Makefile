@@ -4,22 +4,22 @@ CXXFLAGS = -Wall -Werror -Wextra
 
 NAME = Module03
 
-SRC = Animal.cpp Cat.cpp Dog.cpp Main.cpp
+SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp Main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+		$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.cpp
-				$(CXX) $(CXXFLAGS) -o $@ -c $<
+		$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-				rm -rf $(OBJ)
+		rm -rf $(OBJ)
 
 fclean: clean
-				rm -rf $(NAME)
+		rm -rf $(NAME)
 
 re: fclean all
