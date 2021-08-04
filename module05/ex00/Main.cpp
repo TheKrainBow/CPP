@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 17:32:05 by magostin         ###   ########.fr       */
+/*   Created: 2021/08/04 17:25:05 by magostin          #+#    #+#             */
+/*   Updated: 2021/08/04 21:15:41 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"  
-	
-Animal::Animal()
-{
-	_type = "";
-}
-	
-Animal::~Animal()
-{
-}
+#include "Bureaucrat.hpp"
 
-void Animal::makeSound(void) const
+int main(void)
 {
-	std::cout << "Wtf are you doiing here?" << std::endl;
-}
-
-const std::string Animal::getType(void) const
-{
-	return (_type);
+	try
+	{
+		Bureaucrat tom("Tom", 3);
+		Bureaucrat henry("Henry", 5);
+		std::cout << tom;
+		std::cout << henry;
+		henry.upGrade();
+		std::cout << henry;
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
+	{
+		std::cout << e.what();
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << e.what();
+	};
 }

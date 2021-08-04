@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:42:44 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/02 18:48:45 by magostin         ###   ########.fr       */
+/*   Updated: 2021/08/03 18:04:38 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Dog::~Dog()
 	
 }
 
-void Animal::makeSound(void)
+void Dog::makeSound(void) const
 {
 	std::cout << "Bark" << std::endl;
 }

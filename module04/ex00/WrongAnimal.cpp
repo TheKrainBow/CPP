@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 17:32:05 by magostin         ###   ########.fr       */
+/*   Updated: 2021/08/03 18:11:22 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"  
+#include "WrongAnimal.hpp"  
 	
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
 	_type = "";
 }
 	
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
 }
 
-void Animal::makeSound(void) const
+void WrongAnimal::makeSound(void) const
 {
-	std::cout << "Wtf are you doiing here?" << std::endl;
+	std::cout << "How tf did you called me?" << std::endl;
 }
 
-const std::string Animal::getType(void) const
+const std::string WrongAnimal::getType(void) const
 {
 	return (_type);
 }

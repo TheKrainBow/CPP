@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:42:49 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/02 18:51:39 by magostin         ###   ########.fr       */
+/*   Updated: 2021/08/03 18:18:23 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Dog : virtual public Animal
 	public:
 		Dog();
 		~Dog();
+		virtual void makeSound(void) const;
 
 };
 #endif

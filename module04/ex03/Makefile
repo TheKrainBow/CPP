@@ -2,9 +2,9 @@ CXX = clang++
 
 CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
-NAME = Module04
+NAME = Module03
 
-SRC = Bureaucrat.cpp Main.cpp
+SRC = AMateria.cpp Ice.cpp Cure.cpp Character.cpp Main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 17:32:05 by magostin         ###   ########.fr       */
+/*   Created: 2021/08/02 18:39:20 by magostin          #+#    #+#             */
+/*   Updated: 2021/08/04 09:49:28 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"  
-	
-Animal::Animal()
-{
-	_type = "";
-}
-	
-Animal::~Animal()
-{
-}
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
-void Animal::makeSound(void) const
-{
-	std::cout << "Wtf are you doiing here?" << std::endl;
-}
+# include <string>
+# include <iostream>
 
-const std::string Animal::getType(void) const
+class Animal  
 {
-	return (_type);
-}
+	protected:
+		std::string _type;
+	public:
+		Animal();
+		virtual ~Animal();
+		virtual void makeSound(void) const = 0;
+		const std::string getType(void) const;
+};
+#endif

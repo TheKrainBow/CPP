@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 17:32:05 by magostin         ###   ########.fr       */
+/*   Created: 2021/08/02 18:42:49 by magostin          #+#    #+#             */
+/*   Updated: 2021/08/03 18:09:19 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"  
-	
-Animal::Animal()
-{
-	_type = "";
-}
-	
-Animal::~Animal()
-{
-}
+#ifndef WRONGCAT_H
+# define WRONGCAT_H
+# include "WrongAnimal.hpp"
 
-void Animal::makeSound(void) const
+class WrongCat : virtual public WrongAnimal
 {
-	std::cout << "Wtf are you doiing here?" << std::endl;
-}
+	private:
 
-const std::string Animal::getType(void) const
-{
-	return (_type);
-}
+	public:
+		WrongCat();
+		~WrongCat();
+		void makeSound(void) const;
+
+};
+#endif

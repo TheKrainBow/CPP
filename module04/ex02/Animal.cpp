@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 17:32:05 by magostin         ###   ########.fr       */
+/*   Updated: 2021/08/04 09:49:35 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ Animal::Animal()
 	
 Animal::~Animal()
 {
-}
-
-void Animal::makeSound(void) const
-{
-	std::cout << "Wtf are you doiing here?" << std::endl;
 }
 
 const std::string Animal::getType(void) const

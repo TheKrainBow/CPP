@@ -1,10 +1,10 @@
 CXX = clang++
 
-CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CXXFLAGS = -Wall -Werror -Wextra
 
-NAME = Module04
+NAME = Module03
 
-SRC = Bureaucrat.cpp Main.cpp
+SRC = Brain.cpp Animal.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Dog.cpp Main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra
 
 NAME = Module03
 
-SRC = Animal.cpp Cat.cpp Dog.cpp Main.cpp
+SRC = Animal.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Dog.cpp Main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

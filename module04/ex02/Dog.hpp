@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 17:32:05 by magostin         ###   ########.fr       */
+/*   Created: 2021/08/02 18:42:49 by magostin          #+#    #+#             */
+/*   Updated: 2021/08/04 09:40:00 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"  
-	
-Animal::Animal()
-{
-	_type = "";
-}
-	
-Animal::~Animal()
-{
-}
+#ifndef DOG_H
+# define DOG_H
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-void Animal::makeSound(void) const
+class Dog : virtual public Animal
 {
-	std::cout << "Wtf are you doiing here?" << std::endl;
-}
+	private:
+		Brain *_brain;
+	public:
+		Dog();
+		Dog(const Dog &copy);
+		virtual ~Dog();
+		Dog &operator=(const Dog &copy);
+		virtual void makeSound(void) const;
 
-const std::string Animal::getType(void) const
-{
-	return (_type);
-}
+};
+#endif

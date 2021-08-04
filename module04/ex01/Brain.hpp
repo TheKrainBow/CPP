@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 17:32:05 by magostin         ###   ########.fr       */
+/*   Created: 2021/08/04 09:15:07 by magostin          #+#    #+#             */
+/*   Updated: 2021/08/04 09:40:31 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"  
-	
-Animal::Animal()
-{
-	_type = "";
-}
-	
-Animal::~Animal()
-{
-}
+#ifndef BRAIN_H
+# define BRAIN_H
 
-void Animal::makeSound(void) const
-{
-	std::cout << "Wtf are you doiing here?" << std::endl;
-}
+#include <iostream>
+#include <string>
 
-const std::string Animal::getType(void) const
+class Brain  
 {
-	return (_type);
-}
+	private:
+		std::string		_ideas[100];
+	public:
+		Brain();
+		Brain(const Brain &copy);
+		Brain &operator=(const Brain &copy);
+		virtual ~Brain();
+
+};
+#endif

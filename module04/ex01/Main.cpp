@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:49:28 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/04 09:12:53 by magostin         ###   ########.fr       */
+/*   Updated: 2021/08/04 09:44:49 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,31 @@
 
 int main(void)
 {
-	const Animal *meta = new Animal();
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
-	const WrongAnimal *Wrongmeta = new WrongAnimal();
-	const WrongAnimal *Wrongi = new WrongCat();
+	Animal *Animals[10];
 
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	
-	std::cout << Wrongi->getType() << " " << std::endl;
-	Wrongi->makeSound();
-	Wrongmeta->makeSound();
-	return (0);
+	for (int i = 0; i < 10; ++i)
+	{
+		if (i % 2 == 0)
+			Animals[i] = new Dog();
+		else
+			Animals[i] = new Cat();
+	}
+	std::cout << "-----------------------------" << std::endl;
+	for (int i = 0; i < 10; ++i)
+		Animals[i]->makeSound();
+	std::cout << "-----------------------------" << std::endl;
+	for (int i = 0; i < 10; ++i)
+	{
+		delete Animals[i];
+	}
+	std::cout << "-----------------------------" << std::endl;
+	Animal *dog = new Dog();
+	Animal *cat = new Cat();
+
+	dog->makeSound();
+	cat->makeSound();
+
+	delete dog;
+	delete cat;
+	system("leaks abstract");
 }
