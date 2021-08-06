@@ -6,54 +6,44 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:25:05 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/05 10:49:41 by magostin         ###   ########.fr       */
+/*   Updated: 2021/08/06 16:31:33 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
+	Bureaucrat tom("Tom", 1);
+	ShrubberyCreationForm form1("Maison");
+	RobotomyRequestForm form2("Henry");
+	RobotomyRequestForm form3("Henry");
+	PresidentialPardonForm form4("Bob");
+
 	try
 	{
-		Bureaucrat tom("Tom", 3);
-		Bureaucrat henry("Henry", 5);
-		Form		eat("Can Paul eat meat?", 4, 2);
-		Form		sleep("Can Paul sleep tonight?", 3, 2);
-		std::cout << tom;
-		std::cout << henry;
-		std::cout << eat;
-		henry.signForm(eat);
-		henry.upGrade();
-		henry.signForm(eat);
-		tom.downGrade();
-		try
-		{
-			sleep.beSigned(tom);
-		}
-		catch(const Form::GradeTooLowException& e)
-		{
-			std::cout << "Exception: " << e.what() << '\n';
-		}
-		tom.upGrade();
-		sleep.beSigned(tom);
-		try
-		{
-			sleep.beSigned(tom);
-		}
-		catch(const Form::GradeTooLowException& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		tom.signForm(sleep);
-		std::cout << henry;
+		form1.execute(tom);
+		form2.execute(tom);
+		form3.execute(tom);
+		form4.execute(tom);
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch(const Form::FormNotSignedException &e)
 	{
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (const Form::GradeTooLowException &e)
 	{
-		std::cout << e.what();
-	};
+		std::cout << e.what() << std::endl;
+	}
+	tom.signForm(form1);
+	tom.signForm(form2);
+	tom.signForm(form3);
+	tom.signForm(form4);
+	tom.executeForm(form1);
+	tom.executeForm(form2);
+	tom.executeForm(form3);
+	tom.executeForm(form4);
 }

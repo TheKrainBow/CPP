@@ -52,6 +52,18 @@ const char *Form::GradeTooHighException::what() const throw()
 	return this->error_message.c_str();	
 }
 
+const char *Form::FormNotSignedException::what() const throw()
+{
+	return this->error_message.c_str();	
+}
+
+void		Form::execute(Bureaucrat const &executor) const
+{
+	if (!_signed)
+		throw (Form::FormNotSignedException(_name + " is not signed."));
+	if (executor.getGrade() > _gradeToExec)
+		throw (Form::GradeTooLowException(executor.getName() + " is too low graded to execute " + _name));
+}
 
 std::ostream &operator<<(std::ostream &out, Form const &print)
 {

@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 NAME = Module05
 
-SRC = Form.cpp Bureaucrat.cpp Main.cpp
+SRC = Form.cpp Bureaucrat.cpp Main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

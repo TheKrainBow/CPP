@@ -18,6 +18,7 @@ class Bureaucrat
 		void upGrade(void);
 		void downGrade(void);
 		void signForm(Form &form);
+		void executeForm(const Form &form);
 		class GradeTooLowException : virtual public std::exception
 		{
 			private:
