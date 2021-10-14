@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelwaul <mdelwaul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 02:19:57 by mdelwaul          #+#    #+#             */
-/*   Updated: 2021/07/12 03:23:05 by mdelwaul         ###   ########.fr       */
+/*   Updated: 2021/10/14 17:27:54 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void	ft_searchcontact(Contact contacts[8])
 	std::cout << "┕━━━━━━━━━━┺━━━━━━━━━━┺━━━━━━━━━━┺━━━━━━━━━━┙" << std::endl;
 	std::cout << "Givme the Index of the contact you are looking for: ";
 	std::getline (std::cin, line);
-	while (!std::isdigit(line[0]) || line.length() != 1 || std::stoi(line) > i - 1)
+	while (!std::isdigit(line[0]) || line.length() != 1 || atoi(line.c_str()) > i - 1)
 	{
 		std::cout << "It must be a one digit number, less than " << i << std::endl;
 		std::getline (std::cin, line);
 	}
-	contacts[std::stoi(line)].fullPrint();
+	contacts[atoi(line.c_str())].fullPrint();
 }
 
 int	main()
@@ -61,7 +61,7 @@ int	main()
 	{
 		std::cout << "phonebook:> ";
 		std::getline (std::cin, line);
-		if (line == "END")
+		if (line == "EXIT")
 			break ;
 		if (line == "ADD")
 			ft_addcontact(contacts);

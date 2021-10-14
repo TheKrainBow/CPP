@@ -1,12 +1,18 @@
 #include "Convertor.hpp"  
 	
-Convertor::Convertor(char *str)
+Convertor::Convertor(char *str) : _cprint(true), _iprint(true), _fprint(true), _dprint(true)
 {
 	_str = std::string(str);
-	_c = (char)std::stoi(_str);
-	_i = std::stoi(_str);
-	_f = std::stof(_str);
-	_d = std::stod(_str);
+	try	{ _i = atol(_str.c_str()); if (_i > 2147483647 || _i < -2147483648) {_iprint = false; _cprint = false;}}
+	catch (std::invalid_argument &e) {_iprint = false; _cprint = false;}
+	catch (std::out_of_range &e) {_iprint = false; _cprint = false;}
+	if (_cprint)
+		_c = static_cast<char>(_i);
+	try	{ _f = atof(_str.c_str()); }
+	catch (std::invalid_argument &e) {_fprint = false;}
+	try	{ _d = atof(_str.c_str()); }
+	catch (std::invalid_argument &e) {_dprint = false;}
+
 }
 	
 Convertor::~Convertor()
@@ -16,7 +22,9 @@ Convertor::~Convertor()
 void Convertor::print_char()
 {
 	std::cout << "char: ";
-	if (std::isprint(_i))
+	if (!_cprint)
+		std::cout << "impossible";
+	else if (std::isprint(_i))
 		std::cout << "'" << _c << "'";
 	else
 		std::cout << "Non displayable";
@@ -26,21 +34,30 @@ void Convertor::print_char()
 void Convertor::print_int()
 {
 	std::cout << "int: ";
-	std::cout << _i;
+	if (!_iprint)
+		std::cout << "impossible";
+	else
+		std::cout << _i;
 	std::cout << std::endl;
 }
 
 void Convertor::print_float()
 {
 	std::cout << "float: ";
-	std::cout << std::fixed << std::setprecision(1) << _f << "f";
+	if (!_fprint)
+		std::cout << "impossible";
+	else 
+		std::cout << std::fixed << std::setprecision(1) << _f << "f";
 	std::cout << std::endl;
 }
 
 void Convertor::print_double()
 {
 	std::cout << "double: ";
-	std::cout << std::fixed << std::setprecision(1) << _d;
+	if (!_dprint)
+		std::cout << "impossible";
+	else 
+		std::cout << std::fixed << std::setprecision(1) << _d;
 	std::cout << std::endl;
 }
 

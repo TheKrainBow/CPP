@@ -6,13 +6,14 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 02:05:02 by mdelwaul          #+#    #+#             */
-/*   Updated: 2021/07/15 23:39:19 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/14 17:25:52 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
 
 class Contact
 {

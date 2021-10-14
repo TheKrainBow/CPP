@@ -1,6 +1,7 @@
 #ifndef Convertor_H
 # define Convertor_H
-# include <string.h>
+# include <cstring>
+# include <cstdlib>
 # include <iostream>
 # include <iomanip>
 
@@ -15,9 +16,13 @@ class Convertor
 	private:
 		std::string	_str;
 		char		_c;
-		int			_i;
+		long int	_i;
 		float		_f;
 		double		_d;
+		bool		_cprint;
+		bool		_iprint;
+		bool		_fprint;
+		bool		_dprint;
 	public:
 		Convertor(char *str);
 		~Convertor();
@@ -26,14 +31,5 @@ class Convertor
 		void print_float();
 		void print_double();
 		void print_all();
-		class CantCastIt : virtual public std::exception
-		{
-			private:
-				std::string error_message;
-			public:
-				CantCastIt(const std::string &msg) : error_message(msg) {}
-				virtual ~CantCastIt() throw () {}
-				const char *what() const throw();
-		};
 };
 #endif

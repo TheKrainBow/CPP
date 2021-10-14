@@ -1,24 +1,25 @@
-CC = clang++
+CXX = clang++
+
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = Module01
 
-RM = rm -f
-
 SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp 
 
-OBJS = $(SRCS:.cpp=.o)
+OBJ = $(SRCS:.cpp=.o)
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS)
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJS)
+	rm -rf $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
-re:	fclean all
-
-.PHONY:	all clean fclean re
+re: fclean all

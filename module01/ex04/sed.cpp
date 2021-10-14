@@ -6,7 +6,7 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 03:27:36 by krain             #+#    #+#             */
-/*   Updated: 2021/07/19 20:07:57 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/14 17:33:53 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Sed::Sed(std::string fileName, std::string s1, std::string s2)
 {
-	_file.open(fileName, std::ios::in);
+	_file.open(fileName.c_str(), std::ios::in);
 	_s1 = s1;
 	_s2 = s2;
 	_fileName = fileName;
@@ -41,12 +41,12 @@ void Sed::replace(void)
 		if (_file.peek() == '\n')
 		{
 			pos = text.find(_s1, 0);
-			if (pos != -1)
+			if ((int)pos != -1)
 				text.replace(pos, _s1.length(), _s2);
 		}
 	}
 	_file.close();
-	output.open(_fileName + ".replace");
+	output.open((_fileName + ".replace").c_str());
 	output << text;
 	output.close();
 }

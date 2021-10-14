@@ -1,27 +1,25 @@
-CC = @clang++
+CXX = clang++
+
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = Module01
 
-RM = @rm -f
+SRCS = main.cpp Karen.cpp 
 
-SRCS = main.cpp Karen.cpp
+OBJ = $(SRCS:.cpp=.o)
 
-OBJS = $(SRCS:.cpp=.o)
+all: $(NAME)
 
-.cpp.o:
-	$(CC) -c $<
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-all:	$(NAME)
-
-$(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJS)
+	rm -rf $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
-re:	fclean all
-
-.PHONY:	all clean fclean re
+re: fclean all

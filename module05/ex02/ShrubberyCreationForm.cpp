@@ -13,7 +13,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	std::ofstream	output;
 
 	Form::execute(executor);
-	output.open(_target + "_shrubbery");
+	output.open((_target + "_shrubbery").c_str());
 	output << "       _-_" << std::endl;
 	output << "    /~~   ~~\\" << std::endl;
 	output << " /~~         ~~\\" << std::endl;

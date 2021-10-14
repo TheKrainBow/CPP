@@ -6,7 +6,7 @@
 /*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 23:36:34 by krain             #+#    #+#             */
-/*   Updated: 2021/07/16 00:21:36 by krain            ###   ########.fr       */
+/*   Updated: 2021/10/14 17:29:21 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int         main(void)
 	Zombie patrick = Zombie("Patrick");
 	Zombie *bob = new Zombie("Bob");
 
-	first.announce();
-	second->announce();
+	patrick.announce();
+	bob->announce();
 	randomChump("Christine");
-	delete second;
+	delete bob;
 }

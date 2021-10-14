@@ -4,7 +4,7 @@ Character::Character(std::string name) : _name(name)
 {
 	std::cout << name << "'s constructor" << std::endl;
 	for (int i = 0; i < 4; i++)
-		_inventory[i] = nullptr;
+		_inventory[i] = 0;
 }
 	
 Character::~Character()
@@ -22,7 +22,7 @@ void Character::equip(AMateria *m)
 	int	i;
 
 	i = -1;
-	while (++i < 4 && _inventory[i] != nullptr);
+	while (++i < 4 && _inventory[i] != 0);
 	if (i == 4)
 		return ;
 	_inventory[i] = m;
@@ -31,11 +31,11 @@ void Character::equip(AMateria *m)
 void Character::unequip(int idx)
 {
 	std::cout << Character::getName() << " unequiped " << _inventory[idx]->getType() << "." << std::endl;
-	_inventory[idx] = nullptr;
+	_inventory[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (_inventory[idx] != nullptr)
+	if (_inventory[idx] != 0)
 		_inventory[idx]->use(target);
 }
