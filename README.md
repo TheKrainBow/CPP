@@ -1,5 +1,6 @@
 # CPP
 ## This is my implementation of CPP Pool at 42 School
+## DO NOT USE THIS CODE AS A REFERENCE
 
 ### Modules implemented:
 - ✅ Module00
