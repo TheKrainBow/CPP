@@ -1,10 +1,10 @@
-CXX = clang++
+CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g
 
 NAME = Module08
 
-SRC = main.cpp
+SRC = main.cpp span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

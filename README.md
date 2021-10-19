@@ -12,8 +12,8 @@
 - ✅ Module06
 - ✅ Module07
 - ❌ Module08
-  - ❌ ex00
-  - ❌ ex01
+  - ✅ ex00
+  - ✅ ex01
   - ❌ ex02
 
 ### Modules validated by school:
