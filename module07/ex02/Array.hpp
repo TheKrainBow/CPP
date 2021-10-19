@@ -14,8 +14,13 @@ class Array
 		Array() : _size(0), _array(new T[_size]) {};
 		Array(int size) : _size(size), _array(new T[_size])
 		{
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < _size; i++)
 				_array[i] = 0;
+		}
+		Array(const Array &to_copy) : _size(to_copy._size), _array(new T[_size])
+		{
+			for (int i = 0; i < _size; i++)
+				_array[i] = to_copy._array[i];
 		}
 		~Array() {delete [] _array;};
 
