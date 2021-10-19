@@ -10,10 +10,7 @@
 - ✅ Module04
 - ✅ Module05
 - ✅ Module06
-- ❌ Module07
-  - ✅ ex00
-  - ✅ ex01
-  - ❌ ex02
+- ✅ Module07
 - ❌ Module08
   - ❌ ex00
   - ❌ ex01
