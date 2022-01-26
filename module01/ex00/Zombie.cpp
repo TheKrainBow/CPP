@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
+/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 23:37:14 by krain             #+#    #+#             */
-/*   Updated: 2021/07/16 00:18:38 by krain            ###   ########.fr       */
+/*   Created: 2021/07/15 23:37:14 by magostin          #+#    #+#             */
+/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Zombie::Zombie()
 {
+	std::cout << "Zombie unnamed is created." << std::endl;
 }
 
 Zombie::Zombie(std::string named) : name(named)
@@ -28,5 +29,5 @@ Zombie::~Zombie()
 
 void    Zombie::announce(void)
 {
-    std::cout << "<" << this->name << "> BraiiiiiinnnnzzzzzZ..." << std::endl;
+    std::cout << this->name << ": BraiiiiiinnnnzzzzzZ..." << std::endl;
 }
