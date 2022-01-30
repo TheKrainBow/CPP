@@ -2,7 +2,7 @@ CXX = clang++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = Megaphone
+NAME = megaphone
 
 SRC = Megaphone.cpp
 

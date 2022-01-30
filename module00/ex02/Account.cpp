@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 03:32:09 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/25 17:39:20 by magostin         ###   ########.fr       */
+/*   Updated: 2022/01/30 19:21:01 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	Account::_displayTimestamp(void)
 	struct tm * now = localtime(&t);
 	std::cout << '[' << (now->tm_year + 1900) << std::setw(2) << std::setfill('0') << (now->tm_mon + 1) << std::setw(2) << std::setfill('0') << now->tm_mday << '_';
 	std::cout << std::setw(2) << std::setfill('0') << now->tm_hour << std::setw(2) << std::setfill('0') << now->tm_min << std::setw(2) << std::setfill('0') << now->tm_sec << "] ";
-//	std::cout << "[19920104_091532] ";
+	//std::cout << "[19920104_091532] ";
 }
 
 void	Account::makeDeposit(int deposit)
@@ -56,7 +56,7 @@ void	Account::makeDeposit(int deposit)
 	this->_amount += deposit;
 	Account::_totalAmount += deposit;
 	Account::_totalNbDeposits++;
-	std::cout << ";amount:" << this->_amount << ";nb_deposites:" << this->_nbDeposits << std::endl;
+	std::cout << ";amount:" << this->_amount << ";nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)

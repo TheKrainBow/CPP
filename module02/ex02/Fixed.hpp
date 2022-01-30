@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 18:01:25 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:25:56 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,11 @@ Fixed operator+(const Fixed &a, const Fixed &b);
 Fixed operator-(const Fixed &a, const Fixed &b);
 Fixed operator*(const Fixed &a, const Fixed &b);
 Fixed operator/(const Fixed &a, const Fixed &b);
+bool operator==(Fixed const& a, Fixed const& b);
+bool operator>=(Fixed const& a, Fixed const& b);
+bool operator<=(Fixed const& a, Fixed const& b);
+bool operator!=(Fixed const& a, Fixed const& b);
+bool operator>(Fixed const& a, Fixed const& b);
+bool operator<(Fixed const& a, Fixed const& b);
 
 #endif

@@ -6,14 +6,16 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 02:05:02 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/25 17:39:20 by magostin         ###   ########.fr       */
+/*   Updated: 2022/01/30 19:08:48 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iomanip>
-#include <iostream>
-#include <cstdlib>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+# include <string>
+# include <iomanip>
+# include <iostream>
+# include <cstdlib>
 
 class Contact
 {
@@ -33,3 +35,4 @@ class Contact
 		void	shortPrint(int i);
 		void	fullPrint(void);
 };
+#endif

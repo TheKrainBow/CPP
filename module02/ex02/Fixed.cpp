@@ -62,6 +62,72 @@ void Fixed::toDiv(const Fixed &toDiv)
 	value /= toDiv.toFloat();
 }
 
+Fixed::~Fixed()
+{
+}
+
+int		Fixed::toInt(void) const
+{
+	return ((this->value / (1 << this->fixedPoint)));
+}
+
+float	Fixed::toFloat(void) const
+{
+	return ((float)this->value / (1 << this->fixedPoint));
+}
+
+const Fixed	&Fixed::max(Fixed const &a, Fixed const &b)
+{
+	if (a.toFloat() >= b.toFloat())
+		return (a);
+	return (b);
+}
+
+const Fixed	&Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (a.toFloat() < b.toFloat())
+		return (a);
+	return (b);
+}
+
+/*
+**		[OPERATORS]
+*/
+
+//		Comparaisons
+
+bool operator==(Fixed const& a, Fixed const& b)
+{
+	return (a.toFloat() == b.toFloat());
+}
+
+bool operator!=(Fixed const& a, Fixed const& b)
+{
+	return (a.toFloat() != b.toFloat());
+}
+
+bool operator>=(Fixed const& a, Fixed const& b)
+{
+	return (a.toFloat() >= b.toFloat());
+}
+
+bool operator<=(Fixed const& a, Fixed const& b)
+{
+	return (a.toFloat() <= b.toFloat());
+}
+
+bool operator>(Fixed const& a, Fixed const& b)
+{
+	return (a.toFloat() > b.toFloat());
+}
+
+bool operator<(Fixed const& a, Fixed const& b)
+{
+	return (a.toFloat() < b.toFloat());
+}
+
+//
+
 Fixed operator+(const Fixed &a, const Fixed &b)
 {
 	//std::cout << "Assignation + called" << std::endl;
@@ -122,32 +188,4 @@ const Fixed Fixed::operator--(int)
 	//std::cout << "Assignation post-- called" << std::endl;
 	--*this;
 	return (temp);
-}
-
-Fixed::~Fixed()
-{
-}
-
-int		Fixed::toInt(void) const
-{
-	return ((this->value / (1 << this->fixedPoint)));
-}
-
-float	Fixed::toFloat(void) const
-{
-	return ((float)this->value / (1 << this->fixedPoint));
-}
-
-const Fixed	&Fixed::max(Fixed const &a, Fixed const &b)
-{
-	if (a.toFloat() >= b.toFloat())
-		return (a);
-	return (b);
-}
-
-const Fixed	&Fixed::min(Fixed const &a, Fixed const &b)
-{
-	if (a.toFloat() < b.toFloat())
-		return (a);
-	return (b);
 }
