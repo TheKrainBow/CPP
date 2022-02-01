@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 02:04:37 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/30 19:13:18 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/01 23:07:32 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int main(int ac, char **av)
 				std::cout << (char)toupper(*it);
 		}
 	}
+	std::cout << std::endl;
 	return (0);
 }

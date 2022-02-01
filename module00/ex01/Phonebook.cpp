@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 02:19:57 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/25 17:41:47 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/01 23:07:13 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	Phonebook::addContact()
 	int		i;
 
 	i = -1;
-	while (contacts[++i].isUsed() == true && i < 8);
+	while (++i < 8 && contacts[i].isUsed() == true);
 	if (i == 8)
 	{
 		std::cout << "Contact list is Full.." << std::endl;
