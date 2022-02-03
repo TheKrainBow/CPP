@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 03:10:57 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/03 15:56:40 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iomanip>
 #include <iostream>
 #include <fstream>
-#include "sed.hpp"
+#include "Sed.hpp"
 
 int			main(int ac, char **av)
 {

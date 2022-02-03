@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = Module01
 
-SRCS = main.cpp sed.cpp 
+SRCS = main.cpp Sed.cpp 
 
 OBJ = $(SRCS:.cpp=.o)
 
