@@ -6,14 +6,16 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 01:24:09 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:12:58 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iomanip>
-#include <iostream>
-#include "Weapon.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
+# include <string>
+# include <iomanip>
+# include <iostream>
+# include "Weapon.hpp"
 
 class HumanA
 {
@@ -25,3 +27,4 @@ class HumanA
 		~HumanA();
 		void attack(void);
 };
+#endif 

@@ -6,16 +6,16 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 03:27:44 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:14:08 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SED_HPP
 # define SED_HPP
-#include <string>
-#include <iomanip>
-#include <iostream>
-#include <fstream>
+# include <string>
+# include <iomanip>
+# include <iostream>
+# include <fstream>
 
 class Sed
 {

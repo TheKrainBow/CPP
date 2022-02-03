@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 23:37:14 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:04:05 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ Zombie::Zombie()
 	std::cout << "Zombie unnamed is created." << std::endl;
 }
 
-Zombie::Zombie(std::string named) : name(named)
+Zombie::Zombie(std::string name) : _name(name)
 {
-	std::cout << "Zombie " << name << " is created." << std::endl;
+	std::cout << "Zombie " << _name << " is created." << std::endl;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << this->name << " died." << std::endl;
+    std::cout << _name << " died." << std::endl;
 }
 
 void    Zombie::announce(void)
 {
-    std::cout << this->name << ": BraiiiiiinnnnzzzzzZ..." << std::endl;
+    std::cout << _name << ": BraiiiiiinnnnzzzzzZ..." << std::endl;
 }

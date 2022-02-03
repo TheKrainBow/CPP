@@ -6,14 +6,16 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 20:29:41 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:25:48 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iomanip>
-#include <iostream>
-#include <fstream>
+#ifndef KAREN_HPP
+# define KAREN_HPP
+# include <string>
+# include <iomanip>
+# include <iostream>
+# include <fstream>
 
 class Karen
 {
@@ -27,3 +29,5 @@ class Karen
 		~Karen();
 		void complain(std::string level);
 };
+
+#endif

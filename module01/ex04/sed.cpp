@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 03:27:36 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/30 20:19:32 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:22:46 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void Sed::replace(void)
 	{
 		_file >> std::noskipws >> line;
 		text += line;
-		if (_file.peek() == '\n')
+		if (_file.peek() == '\n' || _file.peek() == EOF)
 		{
 			pos = text.find(_s1, 0);
 			if ((int)pos != -1)
