@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 20:33:25 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/26 15:21:24 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:30:47 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,12 @@ void Karen::complain(std::string level)
     };
 
 	for (int i = 0; i < 4 ; i++)
-	{
 		if (s[i] == level || talk)
 		{
 			talk = true;
 			(this->*f[i])();
 			std::cout << std::endl;
 		}
-	}
 	if (!talk)
 		std::cout << "[ Probablement plainte de problèmes insignifiants ]" << std::endl;
 }
