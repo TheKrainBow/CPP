@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 18:01:25 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/04 14:42:58 by magostin         ###   ########.fr       */
+/*   Created: 2021/07/16 01:24:09 by magostin          #+#    #+#             */
+/*   Updated: 2022/02/03 13:13:07 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 # include <string>
 # include <iomanip>
 # include <iostream>
-# include <fstream>
-# include <cmath>
+# include "Weapon.hpp"
 
-class Fixed
+class HumanB
 {
 	private:
-		int					_value;
-		static const int	_fixedPoint = 8;
+		std::string	_name;
+		Weapon		*_weapon;
 	public:
-		Fixed();
-		Fixed(const int val);
-		Fixed(const float val);
-		Fixed(const Fixed &toCopy);
-		~Fixed();
-		Fixed &operator=(const Fixed &toAdd);
-		int getRawBits(void) const;
-		void setRawBits(const int raw);
-		float toFloat(void) const;
-		int toInt(void) const;
+		HumanB(std::string name);
+		~HumanB();
+		void attack(void);
+		void setWeapon(Weapon &weapon);	
 };
-
-std::ostream	&operator<<(std::ostream &out, Fixed const &print);
 #endif

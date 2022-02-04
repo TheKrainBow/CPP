@@ -23,10 +23,11 @@ void Fixed::setRawBits(int const raw)
 	_value = raw;
 }
 
-void Fixed::operator=(const Fixed &toCopy)
+Fixed &Fixed::operator=(const Fixed &toCopy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	_value = toCopy.getRawBits();
+	return (*this);
 }
 
 Fixed::~Fixed()

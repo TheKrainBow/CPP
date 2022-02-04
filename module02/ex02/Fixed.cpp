@@ -2,32 +2,32 @@
 
 Fixed::Fixed()
 {
-	this->value = 0;
+	_value = 0;
 }
 
 Fixed::Fixed(const float val)
 {
-	this->value = round(val * (1 << this->fixedPoint));
+	_value = round(val * (1 << _fixedPoint));
 }
 
 Fixed::Fixed(const int val)
 {
-	this->value = (val << this->fixedPoint);
+	_value = (val << _fixedPoint);
 }
 
 Fixed::Fixed(const Fixed &toCopy)
 {
-	this->value = toCopy.value;
+	*this = toCopy;
 }
 
-int Fixed::getRawBits(void)
+int Fixed::getRawBits(void) const
 {
-	return (this->value);
+	return (_value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->value	 = raw;
+	_value	 = raw;
 }
 
 std::ostream &operator<<(std::ostream &out, Fixed const &print)
@@ -36,30 +36,30 @@ std::ostream &operator<<(std::ostream &out, Fixed const &print)
 	return (out);
 }
 
-void Fixed::operator=(const Fixed &toAdd)
+Fixed &Fixed::operator=(const Fixed &toCopy)
 {
-	this->value = toAdd.value;
-	//std::cout << "Assignation = called" << std::endl;
+	_value = toCopy.getRawBits();
+	return (*this);
 }
 
 void Fixed::toAdd(const Fixed &toAdd)
 {
-	value += toAdd.toFloat();
+	_value += toAdd.toFloat();
 }
 
 void Fixed::toSub(const Fixed &toSub)
 {
-	value -= toSub.toFloat();
+	_value -= toSub.toFloat();
 }
 
 void Fixed::toMul(const Fixed &toMul)
 {
-	value *= toMul.toFloat();
+	_value *= toMul.toFloat();
 }
 
 void Fixed::toDiv(const Fixed &toDiv)
 {
-	value /= toDiv.toFloat();
+	_value /= toDiv.toFloat();
 }
 
 Fixed::~Fixed()
@@ -68,12 +68,12 @@ Fixed::~Fixed()
 
 int		Fixed::toInt(void) const
 {
-	return ((this->value / (1 << this->fixedPoint)));
+	return ((_value / (1 << _fixedPoint)));
 }
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->value / (1 << this->fixedPoint));
+	return ((float)_value / (1 << _fixedPoint));
 }
 
 const Fixed	&Fixed::max(Fixed const &a, Fixed const &b)
@@ -163,7 +163,7 @@ Fixed operator/(const Fixed &a, const Fixed &b)
 const Fixed &Fixed::operator++()
 {
 	//std::cout << "Assignation pre++ called" << std::endl;
-	value++;
+	_value++;
 	return (*this);
 }
 
@@ -178,7 +178,7 @@ const Fixed Fixed::operator++(int)
 const Fixed &Fixed::operator--()
 {
 	//std::cout << "Assignation pre-- called" << std::endl;
-	value--;
+	_value--;
 	return (*this);
 }
 

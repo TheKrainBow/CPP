@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 18:01:25 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/30 20:25:56 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/04 14:41:50 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 class Fixed
 {
 	private:
-		int					value;
-		static const int	fixedPoint = 8;
+		int					_value;
+		static const int	_fixedPoint = 8;
 	public:
 		Fixed();
 		Fixed(const int val);
 		Fixed(const float val);
 		Fixed(const Fixed &toCopy);
 		~Fixed();
-		void operator=(const Fixed &toAdd);
+		Fixed &operator=(const Fixed &toAdd);
 		void toAdd(const Fixed &toAdd);
 		void toSub(const Fixed &toSub);
 		void toMul(const Fixed &toMul);
@@ -38,7 +38,7 @@ class Fixed
 		const Fixed operator++(int);
 		const Fixed &operator--();
 		const Fixed operator--(int);
-		int getRawBits(void);
+		int getRawBits(void) const;
 		void setRawBits(const int raw);
 		float toFloat(void) const;
 		int toInt(void) const;

@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 17:48:32 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/04 17:57:29 by magostin         ###   ########.fr       */
+/*   Created: 2021/07/16 01:14:08 by magostin          #+#    #+#             */
+/*   Updated: 2022/02/03 13:16:15 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <ostream>
+#include "HumanB.hpp"
 
-int main(void)
+HumanB::HumanB(std::string name) : _name(name) {}
+HumanB::~HumanB() {}
+
+void	HumanB::attack(void)
 {
-	Fixed 		a = 42;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	std::cout << _name << " attacks with his " << _weapon->getType() << "." << std::endl;
+}
 
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-	return (0);
+void		HumanB::setWeapon(Weapon &weapon)
+{
+	_weapon = &weapon;
 }

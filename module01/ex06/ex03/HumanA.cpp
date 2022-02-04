@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 17:48:32 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/04 17:57:29 by magostin         ###   ########.fr       */
+/*   Created: 2021/07/16 01:14:08 by magostin          #+#    #+#             */
+/*   Updated: 2022/02/03 13:16:53 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <ostream>
+#include "HumanA.hpp"
 
-int main(void)
+HumanA::~HumanA() {}
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon) {}
+
+void	HumanA::attack(void)
 {
-	Fixed 		a = 42;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-	return (0);
+	std::cout << _name << " attacks with his " << this->_weapon.getType() << "." << std::endl;
 }

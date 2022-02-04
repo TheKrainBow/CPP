@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 13:58:40 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/03 14:07:14 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/04 14:33:24 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &toCopy);
-		void operator=(const Fixed &toAdd);
+		Fixed &operator=(const Fixed &toAdd);
+		~Fixed();
 		int getRawBits(void) const;
 		void setRawBits(const int raw);
-		~Fixed();
 };
 
 #endif

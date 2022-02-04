@@ -5,26 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 17:48:32 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/04 17:57:29 by magostin         ###   ########.fr       */
+/*   Created: 2021/07/16 00:34:55 by magostin          #+#    #+#             */
+/*   Updated: 2022/01/26 15:24:15 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <ostream>
+#include <iostream>
 
-int main(void)
+int		main(void)
 {
-	Fixed 		a = 42;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	std::string str = "HI THIS IS BRAIN";
+	std::string *strPTR = &str;
+	std::string &strREF = str;
 
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-	return (0);
+	std::cout << &str << std::endl;
+	std::cout << strPTR << std::endl;
+	std::cout << &strREF << std::endl;
+
+	std::cout << str << std::endl;
+	std::cout << *strPTR << std::endl;
+	std::cout << strREF << std::endl;
 }
