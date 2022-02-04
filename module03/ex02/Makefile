@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = Module03
 
-SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp Main.cpp
+SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

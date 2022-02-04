@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 15:30:38 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/02 18:15:44 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/04 22:29:39 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,19 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 	public:
-		FragTrap(std::string name);
-		FragTrap();
+		FragTrap(void);
 		~FragTrap();
+		FragTrap(FragTrap &toCopy);
+		FragTrap &operator=(const FragTrap &toCopy);
+	
+		FragTrap(std::string name);
 		void attack(std::string const &target);
 		void highFivesGuys(void);
+		void initHitPoints(void);
+		void initEnergyPoints(void);
+		void initAttackDamage(void);
 };
 #endif

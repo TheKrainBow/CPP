@@ -1,10 +1,10 @@
 CXX = clang++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 
 NAME = Module03
 
-SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp Main.cpp
+SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -6,18 +6,26 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:41:42 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/02 15:22:39 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/04 22:29:36 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 # include "ClapTrap.hpp"
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 	public:
-		void guardGate(void);
-		ScavTrap(std::string name);
+		ScavTrap(void);
+		ScavTrap(ScavTrap &toCopy);
+		ScavTrap &operator=(const ScavTrap &toCopy);
 		~ScavTrap();
+
+		ScavTrap(std::string name);
+		void guardGate(void);
+		void attack(std::string const &target);
+		void initHitPoints(void);
+		void initEnergyPoints(void);
+		void initAttackDamage(void);
 };
 
 #endif
