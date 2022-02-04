@@ -90,6 +90,19 @@ const Fixed	&Fixed::min(Fixed const &a, Fixed const &b)
 	return (b);
 }
 
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() >= b.toFloat())
+		return (a);
+	return (b);
+}
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() < b.toFloat())
+		return (a);
+	return (b);
+}
 /*
 **		[OPERATORS]
 */

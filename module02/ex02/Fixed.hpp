@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 18:01:25 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/04 14:41:50 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/04 18:08:43 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ class Fixed
 		int toInt(void) const;
 		static const Fixed &min(Fixed const &a, Fixed const &b);
 		static const Fixed &max(Fixed const &a, Fixed const &b);
+		static Fixed &min(Fixed &a, Fixed &b);
+		static Fixed &max(Fixed &a, Fixed &b);
 };
 
 std::ostream	&operator<<(std::ostream &out, Fixed const &print);
