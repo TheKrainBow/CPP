@@ -8,15 +8,18 @@
 class Character : virtual public ICharacter
 {
 	private:
-		const std::string _name;
+		std::string _name;
 		AMateria *_inventory[4];
 	public:
-		Character(std::string name);
+		Character();
+		Character(Character &toCopy);
+		Character &operator=(Character &toCopy);
 		~Character();
+
+		Character(std::string name);
 		virtual std::string const &getName() const;
 		virtual void equip(AMateria *m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter &target);
-
 };
 #endif

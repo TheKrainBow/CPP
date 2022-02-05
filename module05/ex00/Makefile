@@ -1,10 +1,10 @@
-CXX = clang++
+CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
 
 NAME = Module04
 
-SRC = Bureaucrat.cpp Main.cpp
+SRC = Bureaucrat.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

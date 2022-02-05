@@ -1,10 +1,10 @@
-CXX = clang++
+CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = what_type
 
-SRC = Main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

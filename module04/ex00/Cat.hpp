@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:42:49 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 18:18:16 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/05 17:48:16 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ class Cat : virtual public Animal
 	public:
 		Cat();
 		~Cat();
-		virtual void makeSound(void) const;
+		Cat(Cat &toCopy);
+		Cat &operator=(const Cat &toCopy);
 
+		virtual void makeSound(void) const;
 };
 #endif

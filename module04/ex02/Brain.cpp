@@ -16,28 +16,28 @@ Brain::Brain()
 		"Make noise"
 	};
 
-	std::cout << "Brain's Constructor" << std::endl;
+	std::cout << "🧠 Default Constructor" << std::endl;
 	for (int i = 0; i < 100; ++i)
 	{
-		_ideas[i] = ideas[rand() % (sizeof(ideas) / sizeof(std::string))];
+		_ideas[i] = ideas[rand() % 11];
 	}
 }
 
 Brain &Brain::operator=(const Brain &copy)
 {
+	std::cout << "🧠 Overload of =" << std::endl;
 	for (int i = 0; i < 100; ++i)
 		_ideas[i] = copy._ideas[i];
 	return *this;
 }
 
-
 Brain::Brain(const Brain &copy)
 {
-	for (int i = 0; i < 100; i++)
-		_ideas[i] = copy._ideas[i];
+	std::cout << "🧠 Copy Constructor" << std::endl;
+	*this = copy;
 }
 
 Brain::~Brain()
 {
-	std::cout << "Brain's Destructor" << std::endl;
+	std::cout << "🧠 Destructor" << std::endl;
 }

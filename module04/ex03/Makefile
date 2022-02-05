@@ -1,10 +1,10 @@
-CXX = clang++
+CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98# -fsanitize=address -g3
 
-NAME = Module03
+NAME = Module04
 
-SRC = AMateria.cpp Ice.cpp Cure.cpp Character.cpp Main.cpp
+SRC = AMateria.cpp Cure.cpp Character.cpp main.cpp Ice.cpp MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

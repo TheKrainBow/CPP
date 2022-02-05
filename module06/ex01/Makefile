@@ -1,10 +1,10 @@
-CXX = clang++
+CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = serialize
 
-SRC = Main.cpp Data.cpp
+SRC = main.cpp Data.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

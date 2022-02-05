@@ -6,41 +6,45 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:42:44 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/04 09:26:22 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:27:14 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"  
-	
-Dog::~Dog()
-{
-	std::cout << "Dog's Destructor" << std::endl;
-	delete _brain;
-}
 
-Dog::Dog()
+Dog::Dog() : Animal::Animal()
 {
-	std::cout << "Dog's default Constructor" << std::endl;
+	std::cout << "🐶 Default Constructor" << std::endl;
 	_type = "Dog";
 	_brain = new Brain();
 }
 
-Dog::Dog(const Dog &copy)
+Dog::~Dog()
 {
-	std::cout << "Dog's copy Constructor" << std::endl;
-	this->_brain = copy._brain;
-	this->_type = copy._type;
+	std::cout << "🐶 Default Destructor" << std::endl;
+	delete _brain;
+}
+
+Dog::Dog(const Dog &copy) : Animal::Animal()
+{
+	std::cout << "🐶 Copy Constructor" << std::endl;
+	*this = copy;
 }
 
 Dog &Dog::operator=(const Dog &copy)
 {
-	std::cout << "Dog's operator=" << std::endl;
-	_brain = copy._brain;
+	std::cout << "🐶 Overload of =" << std::endl;
 	_type = copy._type;
+	_brain = new Brain(*copy._brain);
 	return *this;
 }
 
 void Dog::makeSound(void) const
 {
-	std::cout << "Bark" << std::endl;
+	std::cout << "🐶 Wouf 🐶" << std::endl;
+}
+
+Brain *Dog::getBrain(void)
+{
+	return (_brain);
 }

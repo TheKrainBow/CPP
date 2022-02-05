@@ -1,10 +1,10 @@
-CXX = clang++
+CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = convert
 
-SRC = Main.cpp Convertor.cpp
+SRC = main.cpp Convertor.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

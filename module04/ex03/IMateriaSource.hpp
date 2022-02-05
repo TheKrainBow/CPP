@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 02:19:57 by magostin          #+#    #+#             */
-/*   Updated: 2022/01/25 17:40:38 by magostin         ###   ########.fr       */
+/*   Created: 2022/02/05 23:17:43 by magostin          #+#    #+#             */
+/*   Updated: 2022/02/05 23:18:14 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "AMateria.hpp"
 
-int	main()
+class IMateriaSource
 {
-	Phonebook my_book;
-	std::string line;
-
-	while (std::cin.eof() != 1)
-	{
-		std::cout << "phonebook:> ";
-		std::getline (std::cin, line);
-		if (line == "EXIT")
-			break ;
-		if (line == "ADD")
-			my_book.addContact();
-		if (line == "SEARCH")
-			my_book.searchContact();
-	}
-}
+    public:
+        virtual ~IMateriaSource() {}
+        virtual void learnMateria(AMateria*) = 0;
+        virtual AMateria* createMateria(std::string const & type) = 0;
+};

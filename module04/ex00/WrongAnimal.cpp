@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/03 18:11:22 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/05 17:55:02 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,39 @@
 	
 WrongAnimal::WrongAnimal()
 {
-	_type = "";
+	std::cout << "rotcurtsnoC tluafeD 🐾" << std::endl;
+	_type = "WrongAnimal";
 }
 	
 WrongAnimal::~WrongAnimal()
 {
+	std::cout << "rotcurtseD tluafeD 🐾" << std::endl;
+}
+
+WrongAnimal::WrongAnimal(WrongAnimal &toCopy)
+{
+	std::cout << "rotcurtsnoC ypoC 🐾" << std::endl;
+	*this = toCopy;
+}
+
+WrongAnimal &WrongAnimal::operator=(WrongAnimal &toCopy)
+{
+	std::cout << "= fo daolrevO 🐾" << std::endl;
+	_type = toCopy.getType();
+	return (*this);
 }
 
 void WrongAnimal::makeSound(void) const
 {
-	std::cout << "How tf did you called me?" << std::endl;
+	std::cout << "🐾 ?ereh gniod uoy era lleh eht tahW 🐾" << std::endl;
 }
 
 const std::string WrongAnimal::getType(void) const
 {
 	return (_type);
+}
+
+void	WrongAnimal::announce(void) const
+{
+	std::cout << "I'm a " << _type << "!" << std::endl;
 }

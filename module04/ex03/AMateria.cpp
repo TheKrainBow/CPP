@@ -12,7 +12,8 @@ std::string const &AMateria::getType() const
 {
 	return (_type);
 }
+
 void AMateria::use(ICharacter &target)
 {
-	(void)target;
+	std::cout << "* Tried to use a Materia on " << target.getName() << ", but Materia is undefined *" << std::endl;
 }

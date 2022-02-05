@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:39:20 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/04 09:39:52 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/05 17:52:56 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ class Animal
 		std::string _type;
 	public:
 		Animal();
+		Animal(const Animal &toCopy);
+		Animal &operator=(const Animal &toCopy);
 		virtual ~Animal();
+
 		virtual void makeSound(void) const;
 		const std::string getType(void) const;
+		void announce(void) const;
 };
 #endif

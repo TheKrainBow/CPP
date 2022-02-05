@@ -2,12 +2,23 @@
 
 Ice::Ice() : AMateria("ice")
 {
-	std::cout << "Ice's constructor" << std::endl;
+	//std::cout << "Ice's constructor" << std::endl;
 }
 	
 Ice::~Ice()
 {
-	std::cout << "Ice's destructor" << std::endl;
+	//std::cout << "Ice's destructor" << std::endl;
+}
+
+Ice::Ice(const Ice &toCopy) : AMateria("ice")
+{
+	*this = toCopy;
+}
+
+Ice		&Ice::operator=(const Ice &toCopy)
+{
+	_type = toCopy._type;
+	return *this;
 }
 
 AMateria *Ice::clone(void) const

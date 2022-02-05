@@ -1,15 +1,25 @@
 #include "Character.hpp"  
-	
+
 Character::Character(std::string name) : _name(name)
 {
-	std::cout << name << "'s constructor" << std::endl;
+	//std::cout << name << "'s constructor" << std::endl;
 	for (int i = 0; i < 4; i++)
-		_inventory[i] = 0;
+		_inventory[i] = NULL;
 }
-	
+
+Character::Character() : _name("Default")
+{
+	//std::cout << _name << "'s constructor" << std::endl;
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = NULL;
+}
+
 Character::~Character()
 {
-	std::cout << _name << "'s destructor" << std::endl;
+	//std::cout << _name << "'s destructor" << std::endl;
+	for (int i = 0; i < 4; i++)
+		if (_inventory[i])
+			delete _inventory[i];
 }
 
 std::string const &Character::getName() const
@@ -31,11 +41,31 @@ void Character::equip(AMateria *m)
 void Character::unequip(int idx)
 {
 	std::cout << Character::getName() << " unequiped " << _inventory[idx]->getType() << "." << std::endl;
-	_inventory[idx] = 0;
+	_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (_inventory[idx] != 0)
+	if (_inventory[idx])
 		_inventory[idx]->use(target);
+}
+
+Character::Character(Character &toCopy) : _name("Default")
+{
+	//std::cout << _name << "'s constructor" << std::endl;
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = NULL;
+	*this = toCopy;
+}
+
+Character &Character::operator=(Character &toCopy)
+{
+	for (int i = 0; i < 4; i++)
+		if (_inventory[i])
+			delete _inventory[i];
+	for (int i = 0; i < 4; i++)
+		if (toCopy._inventory[i])
+			_inventory[i] = toCopy._inventory[i]->clone();
+	_name = toCopy.getName();
+	return *this;
 }

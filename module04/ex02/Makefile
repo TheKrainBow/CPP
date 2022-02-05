@@ -1,10 +1,10 @@
-CXX = clang++
+CXX = c++
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = Module03
+NAME = Module04
 
-SRC = Brain.cpp Animal.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Dog.cpp Main.cpp
+SRC = Brain.cpp Animal.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Dog.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

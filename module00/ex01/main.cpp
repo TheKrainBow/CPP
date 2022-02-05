@@ -5,30 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 18:49:28 by magostin          #+#    #+#             */
-/*   Updated: 2021/08/04 17:12:48 by magostin         ###   ########.fr       */
+/*   Created: 2021/07/12 02:19:57 by magostin          #+#    #+#             */
+/*   Updated: 2022/02/05 17:57:40 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Phonebook.hpp"
 
-#include "AMateria.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "Character.hpp"
-
-int main(void)
+int	main()
 {
-	Character	bob("Bob");
-	Character	paul("Paul");
-	AMateria	*ice = new Ice();
-	AMateria	*cure = new Cure();
+	Phonebook my_book;
+	std::string line;
 
-	bob.equip(ice);
-	bob.equip(cure);
-	bob.use(0, paul);
-	bob.use(1, paul);
-	delete ice;
-	delete cure;
+	while (std::cin.eof() != 1)
+	{
+		std::cout << "phonebook:> ";
+		std::getline (std::cin, line);
+		if (line == "EXIT")
+			break ;
+		if (line == "ADD")
+			my_book.addContact();
+		if (line == "SEARCH")
+			my_book.searchContact();
+	}
 }
