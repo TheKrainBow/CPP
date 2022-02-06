@@ -18,8 +18,13 @@ Character::~Character()
 {
 	//std::cout << _name << "'s destructor" << std::endl;
 	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 3; j > i; j--)
+			if (_inventory[j] == _inventory[i])
+				_inventory[j] = NULL;
 		if (_inventory[i])
 			delete _inventory[i];
+	}
 }
 
 std::string const &Character::getName() const
@@ -40,13 +45,15 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
+	if (idx > 3)
+		return ;
 	std::cout << Character::getName() << " unequiped " << _inventory[idx]->getType() << "." << std::endl;
 	_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (_inventory[idx])
+	if (idx < 4 && _inventory[idx])
 		_inventory[idx]->use(target);
 }
 

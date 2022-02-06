@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:39:26 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/05 17:53:11 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/06 00:33:08 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Animal::Animal()
 	
 Animal::~Animal()
 {
-	std::cout << "🐾 Default Destructor" << std::endl;
+	std::cout << "🐾 Destructor" << std::endl;
 }
 
 Animal::Animal(const Animal &toCopy)

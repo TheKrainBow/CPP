@@ -18,13 +18,12 @@ Brain::Brain()
 
 	std::cout << "🧠 Default Constructor" << std::endl;
 	for (int i = 0; i < 100; ++i)
-	{
 		_ideas[i] = ideas[rand() % 11];
-	}
 }
 
 Brain &Brain::operator=(const Brain &copy)
 {
+	std::cout << "🧠 Overload of =" << std::endl;
 	for (int i = 0; i < 100; ++i)
 		_ideas[i] = copy._ideas[i];
 	return *this;
@@ -32,6 +31,7 @@ Brain &Brain::operator=(const Brain &copy)
 
 Brain::Brain(const Brain &copy)
 {
+	std::cout << "🧠 Copy Constructor" << std::endl;
 	*this = copy;
 }
 

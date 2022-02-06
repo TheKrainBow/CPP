@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:49:28 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/06 00:01:42 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/06 01:15:41 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,27 @@ void	basicTest()
 	AMateria	*ice = new Ice();
 	AMateria	*cure = new Cure();
 	Character	bob("Bob");
-	Character	paul("Paul");
 
 	bob.equip(ice);
 	bob.equip(cure);
-	bob.use(0, paul);
-	bob.use(1, paul);
-
+	bob.equip(cure->clone());
+	bob.equip(cure);
+	bob.equip(cure);
+	bob.equip(cure);
+	bob.equip(NULL);
+	bob.use(0, bob);
+	bob.use(1, bob);
+	bob.unequip(6);
+	bob.use(5, bob);
 }
 
 void	materiaSourceTest()
 {
-	AMateria		*ice = new Ice();
-	AMateria		*cure = new Cure();
 	MateriaSource	*src = new MateriaSource();
-	src->learnMateria(ice);
-	src->learnMateria(cure);
-
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 	Character	bob("Bob");
+
 	bob.equip(src->createMateria("ice"));
 	bob.equip(src->createMateria("cure"));
 	bob.equip(src->createMateria("cureeee"));

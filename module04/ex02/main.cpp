@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: krain <krain@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:49:28 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/05 18:54:31 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/06 00:41:40 by krain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int main(void)
 	std::cout << std::endl << "🌀   Copy Tests   🌀" << std::endl;
 	CopyTest();
 	
-	//Animal *temp = new Animal(); Uncomment me to check that!
+	//Animal *temp = new Animal(); (void)temp;// Uncomment me to check that!
 	
 	std::cout << std::endl << "🎮  End of tests  🎮\033[37m" << std::endl;
 }

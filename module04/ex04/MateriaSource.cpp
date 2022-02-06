@@ -49,6 +49,8 @@ void MateriaSource::learnMateria(AMateria *toLearn)
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
     //std::cout << "Create new Materia" << std::endl;
+	if (type.c_str() == NULL)
+		return (NULL);
     for (int i = 0; i < 4; i++)
         if (_inventory[i] && type.compare(_inventory[i]->getType()) == 0)
             return (_inventory[i]->clone());
