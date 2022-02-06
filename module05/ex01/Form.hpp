@@ -12,8 +12,12 @@ class Form
 		const int			_gradeToSign;
 		const int			_gradeToExec;
 	public:
-		Form(std::string name, int sign, int exec);
+		Form(const Form &toCopy);
+		Form();
+		Form &operator=(const Form &toCopy);
 		~Form();
+	
+		Form(std::string name, int sign, int exec);
 		bool		getSigned(void) const;
 		std::string	getName(void) const;
 		int			getGradeToSign(void) const;

@@ -61,6 +61,6 @@ Form*	Intern::makeForm(std::string const &formName, std::string const &target) c
 			return (form);
 		}
 	}
-	std::cout << "Error: Form creation failed, form type <" << formName << "> unknown" << std::endl;
+	std::cout << "Form creation failed because <" << formName << "> is an unknown Form type" << std::endl;
 	return (NULL);
 }

@@ -1,8 +1,8 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME = Module04
+NAME = Module05
 
 SRC = Bureaucrat.cpp main.cpp
 

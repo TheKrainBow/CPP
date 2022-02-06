@@ -1,70 +1,49 @@
 #include "Convertor.hpp"  
 	
-Convertor::Convertor(char *str) : _cprint(true), _iprint(true), _fprint(true), _dprint(true)
+Convertor::Convertor() : _str("0") {}
+Convertor::Convertor(const Convertor &toCopy) : _str(toCopy._str) {}
+Convertor::Convertor(char *str) : _str(str)
 {
-	_str = std::string(str);
-	try	{ _i = atol(_str.c_str()); if (_i > 2147483647 || _i < -2147483648) {_iprint = false; _cprint = false;}}
-	catch (std::invalid_argument &e) {_iprint = false; _cprint = false;}
-	catch (std::out_of_range &e) {_iprint = false; _cprint = false;}
-	if (_cprint)
-		_c = static_cast<char>(_i);
-	try	{ _f = atof(_str.c_str()); }
-	catch (std::invalid_argument &e) {_fprint = false;}
-	try	{ _d = atof(_str.c_str()); }
-	catch (std::invalid_argument &e) {_dprint = false;}
-
+	try
+	{
+		detectType(); 
+	}
+	catch (Convertor::InvalidConversionException &e)
+	{
+		std::cout << e.what();
+	}
 }
+Convertor::~Convertor() {}
+
+void Convertor::detectType()
+{
+	unsigned long		pos;
 	
-Convertor::~Convertor()
-{
+	for (std::string::iterator it = _str.begin(); it != _str.end(); it++)
+		if (std::isalpha(*it))
+		{
+			if (std::strchr("infa.-+", *it) == NULL)
+				throw Convertor::InvalidConversionException("Invalid Conversion: invalid char detected");
+			else if (std::strchr("infa", *it) != NULL && (_str.compare("+inf") != 0 && _str.compare("-inf") != 0 && _str.compare("+inff") != 0 && _str.compare("-inff") != 0 && _str.compare("nan") != 0 && _str.compare("nanf") != 0))
+				throw Convertor::InvalidConversionException("Invalid Conversion: invalid char detected");
+		}
+	if ((pos = _str.find('.', 0)) != std::string::npos)
+	{
+		if (_str.find('.', pos + 1) != std::string::npos)
+			throw Convertor::InvalidConversionException("Invalid Conversion: two \'.\' in the number");
+		if (_str.at(_str.length() - 1) == 'f')
+			_type = FLOAT;
+		else
+			_type = DOUBLE;
+	}
 }
 
-void Convertor::print_char()
+void Convertor::convertToAllTypes()
 {
-	std::cout << "char: ";
-	if (!_cprint)
-		std::cout << "impossible";
-	else if (std::isprint(_i))
-		std::cout << "'" << _c << "'";
-	else
-		std::cout << "Non displayable";
-	std::cout << std::endl;
+	std::cout << std::atof(_str.c_str()) << std::endl;
 }
 
-void Convertor::print_int()
+const char *Convertor::InvalidConversionException::what() const throw()
 {
-	std::cout << "int: ";
-	if (!_iprint)
-		std::cout << "impossible";
-	else
-		std::cout << _i;
-	std::cout << std::endl;
-}
-
-void Convertor::print_float()
-{
-	std::cout << "float: ";
-	if (!_fprint)
-		std::cout << "impossible";
-	else 
-		std::cout << std::fixed << std::setprecision(1) << _f << "f";
-	std::cout << std::endl;
-}
-
-void Convertor::print_double()
-{
-	std::cout << "double: ";
-	if (!_dprint)
-		std::cout << "impossible";
-	else 
-		std::cout << std::fixed << std::setprecision(1) << _d;
-	std::cout << std::endl;
-}
-
-void Convertor::print_all()
-{
-	print_char();
-	print_int();
-	print_float();
-	print_double();
+	return error_message.c_str();	
 }

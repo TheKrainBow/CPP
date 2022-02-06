@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Main.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/04 17:25:05 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/05 17:57:40 by magostin         ###   ########.fr       */
+/*   Created: 2021/09/08 09:22:21 by magostin          #+#    #+#             */
+/*   Updated: 2022/02/06 23:39:14 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Convertor.hpp"
 
-int main(void)
+int main(int ac, char **av)
 {
-	try
+	if (ac > 1 && av[1] && av[1][0])
 	{
-		Bureaucrat tom("Tom", 3);
-		Bureaucrat henry("Henry", 5);
-		std::cout << tom;
-		std::cout << henry;
-		henry.upGrade();
-		std::cout << henry;
+		Convertor convert(av[1]);
+		convert.convertToAllTypes();
+		return (0);
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << e.what();
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << e.what();
-	};
+	std::cout << "Missing Args" << std::endl;
 }

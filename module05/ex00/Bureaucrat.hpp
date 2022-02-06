@@ -11,8 +11,12 @@ class Bureaucrat
 	public:
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
+		Bureaucrat(Bureaucrat const &toCopy);
+		Bureaucrat &operator=(const Bureaucrat &toCopy);
+
 		const std::string getName(void) const;
 		int getGrade(void) const;
+		void setGrade(int grade);
 		void upGrade(void);
 		void downGrade(void);
 		class GradeTooLowException : virtual public std::exception

@@ -12,14 +12,18 @@ class Form
 		const int			_gradeToSign;
 		const int			_gradeToExec;
 	public:
-		Form(std::string name, int sign, int exec);
+		Form(const Form &toCopy);
+		Form();
+		Form &operator=(const Form &toCopy);
 		virtual ~Form();
+	
+		Form(std::string name, int sign, int exec);
 		bool		getSigned(void) const;
 		std::string	getName(void) const;
 		int			getGradeToSign(void) const;
 		int			getGradeToExec(void) const;
 		void		beSigned(const Bureaucrat &man);
-		virtual void execute(Bureaucrat const &executor) const;
+		virtual void execute(Bureaucrat const &executor) const = 0;
 		class GradeTooLowException : virtual public std::exception
 		{
 			private:

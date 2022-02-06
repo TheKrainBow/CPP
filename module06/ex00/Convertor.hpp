@@ -5,31 +5,39 @@
 # include <iostream>
 # include <iomanip>
 
-# define ERROR 0
-# define CHAR 1
-# define INT 2
-# define FLOAT 3
-# define DOUBLE 4
+typedef enum		s_type {
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE
+}	t_type;
 
 class Convertor  
 {
 	private:
 		std::string	_str;
-		char		_c;
-		long int	_i;
-		float		_f;
-		double		_d;
-		bool		_cprint;
-		bool		_iprint;
-		bool		_fprint;
-		bool		_dprint;
+		char				_c;
+		long int			_i;
+		float				_f;
+		double				_d;
+		t_type				_type;
 	public:
-		Convertor(char *str);
+		Convertor();
+		Convertor(const Convertor &toCopy);
+		Convertor &operator=(const Convertor &toCopy);
 		~Convertor();
-		void print_char();
-		void print_int();
-		void print_float();
-		void print_double();
-		void print_all();
+	
+		Convertor(char *str);
+		void detectType();
+		void convertToAllTypes();
+		class InvalidConversionException : virtual public std::exception
+		{
+			private:
+				std::string error_message;
+			public:
+				InvalidConversionException(const std::string &msg) : error_message(msg) {}
+				virtual ~InvalidConversionException() throw () {}
+				const char *what() const throw();
+		};
 };
 #endif

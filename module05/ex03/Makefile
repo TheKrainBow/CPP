@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98  -g
 
 NAME = Module05
 

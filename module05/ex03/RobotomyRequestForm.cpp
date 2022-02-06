@@ -1,5 +1,20 @@
 #include "RobotomyRequestForm.hpp"  
 	
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45), _target("Default")
+{
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &toCopy) : Form(toCopy)
+{
+	*this = toCopy;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &toCopy)
+{
+	(void)toCopy;
+	return *this;
+}
+
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45), _target(target)
 {
 }
@@ -12,9 +27,9 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
 	srand(time(NULL));
-	std::cout << "* Bruits de perceuses *" << std::endl;
+	std::cout << "* Drill sounds *" << std::endl;
 	if (rand() % 2)
-		std::cout << _target << " a été robotomizée" << std::endl;
+		std::cout << _target << " was robotized" << std::endl;
 	else
-		std::cout << _target << " n'a pas été robotomizé" << std::endl;
+		std::cout << _target << " was not robotized" << std::endl;
 }
