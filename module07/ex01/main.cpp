@@ -11,7 +11,7 @@ int main( void ) {
 
 	for (int i = 0; i < 5; i++)
 		std::cout << test[i] << " ";
-	iter<int>(test, 5, inc);
+	::iter<int>(test, 5, inc);
 	std::cout << std::endl;
 	for (int i = 0; i < 5; i++)
 		std::cout << test[i] << " ";

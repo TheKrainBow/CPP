@@ -17,10 +17,15 @@ class Array
 			for (int i = 0; i < _size; i++)
 				_array[i] = 0;
 		}
-		Array(const Array &to_copy) : _size(to_copy._size), _array(new T[_size])
+		Array(const Array &toCopy) : _size(toCopy._size), _array(new T[_size])
+		{
+			*this = toCopy;
+		}
+		Array &operator=(const Array &toCopy)
 		{
 			for (int i = 0; i < _size; i++)
-				_array[i] = to_copy._array[i];
+				_array[i] = toCopy._array[i];
+			return (*this);
 		}
 		~Array() {delete [] _array;};
 

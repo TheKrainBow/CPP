@@ -5,7 +5,7 @@ template <typename T>
 void iter(T *array, int lenght, T (*function)(T))
 {
 	int i = -1;
-	while (++i < lenght)
+	while (array && ++i < lenght)
 		array[i] = function(array[i]);
 }
 
