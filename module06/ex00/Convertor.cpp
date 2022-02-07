@@ -15,6 +15,17 @@ Convertor::Convertor(char *str) : _str(str), _c(0), _i(0), _f(0.0f), _d(0.0), _i
 }
 Convertor::~Convertor() {}
 
+Convertor &Convertor::operator=(const Convertor &toCopy)
+{
+	_d = toCopy._d;
+	_i = toCopy._i;
+	_f = toCopy._f;
+	_c = toCopy._c;
+	_inf = toCopy._inf;
+	_nan = toCopy._nan;
+	return *this;
+}
+
 void Convertor::isChar()
 {
 	if (!(std::isprint(_str[0]) && !std::isdigit(_str[0]) && _str.length() == 1))
