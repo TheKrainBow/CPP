@@ -1,5 +1,5 @@
-#ifndef ARRAY_H
-#define ARRAY_H
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 #include <iostream>
 
 template <typename T>
@@ -18,13 +18,15 @@ class Array
 		}
 		Array &operator=(const Array &toCopy)
 		{
+			if (toCopy._size > _size)
+				throw OutOfArray("Impossible to copy into a smaller Array");
 			for (int i = 0; i < _size; i++)
 				_array[i] = toCopy._array[i];
 			return (*this);
 		}
 		~Array() {delete [] _array;};
 
-		Array(int size) : _size(size), _array(new T[_size])
+		Array(int size) : _size(size), _array(new T[size])
 		{
 			for (int i = 0; i < _size; i++)
 				_array[i] = 0;

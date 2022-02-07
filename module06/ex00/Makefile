@@ -1,12 +1,13 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD
 
 NAME = convert
 
 SRC = main.cpp Convertor.cpp
 
 OBJ = $(SRC:.cpp=.o)
+DEP = $(SRC:.cpp=.d)
 
 all: $(NAME)
 

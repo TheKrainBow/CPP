@@ -1,19 +1,14 @@
 #include "iter.hpp"
 #include <iostream>
 
-int	inc(int a)
+void	print(const int &a)
 {
-	return a + 42;
+	std::cout << a << std::endl;
 }
 
-int main( void ) {
+int main( void )
+{
 	int test[5] = {0, 1, 2, 3, 4};
 
-	for (int i = 0; i < 5; i++)
-		std::cout << test[i] << " ";
-	::iter(test, 5, inc);
-	std::cout << std::endl;
-	for (int i = 0; i < 5; i++)
-		std::cout << test[i] << " ";
-	std::cout << std::endl;
+	::iter(test, 5, print);
 }

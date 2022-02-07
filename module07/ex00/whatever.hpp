@@ -1,5 +1,5 @@
-#ifndef WATHEVER_H
-#define WATHEVER_H
+#ifndef WATHEVER_HPP
+#define WATHEVER_HPP
 
 template <typename T>
 T &min(T &a, T &b)

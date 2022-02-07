@@ -47,8 +47,7 @@ void SubjectTest()
     }
     //SCOPE
     {
-        Array<int> tmp;
-        tmp = numbers;
+        Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
 
@@ -89,4 +88,5 @@ int main(void)
 	std::cout << std::endl << "🌀   Subject Test   🌀" << std::endl;
 	SubjectTest();
 	std::cout << std::endl << "🎮  End of tests  🎮\033[37m" << std::endl;
+	Array<int> pouet;
 }

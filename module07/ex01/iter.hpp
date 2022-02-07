@@ -1,11 +1,11 @@
-#ifndef ITER_H
-#define ITER_H
+#ifndef ITER_HPP
+#define ITER_HPP
 
 template <typename T>
-void iter(T *array, int lenght, T (*function)(T))
+void iter(T *array, int lenght, void (*function)(T const &))
 {
 	for (int i = 0; array && i < lenght ; i++)
-		array[i] = function(array[i]);
+		function(array[i]);
 }
 
 #endif
