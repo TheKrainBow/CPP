@@ -8,7 +8,11 @@ class Data
 		int		_number;
 		char	_id;
 	public:
-		Data(char id, int number);
+		Data();
+		Data(const Data &toCopy);
+		Data &operator=(const Data &toCopy);
 		~Data();
+
+		Data(char id, int number);
 		void print(void);
 };

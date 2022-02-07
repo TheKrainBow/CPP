@@ -3,9 +3,7 @@
 
 class Base
 {
-private:
-	/* data */
-public:
-	virtual ~Base();
+	public:
+		virtual ~Base();
 };
 #endif

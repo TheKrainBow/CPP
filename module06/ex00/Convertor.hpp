@@ -5,22 +5,17 @@
 # include <iostream>
 # include <iomanip>
 
-typedef enum		s_type {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE
-}	t_type;
-
 class Convertor  
 {
 	private:
-		std::string	_str;
+		std::string			_str;
 		char				_c;
 		long int			_i;
 		float				_f;
 		double				_d;
-		t_type				_type;
+		int					_inf;
+		bool				_nan;
+		bool				_converted;
 	public:
 		Convertor();
 		Convertor(const Convertor &toCopy);
@@ -28,8 +23,13 @@ class Convertor
 		~Convertor();
 	
 		Convertor(char *str);
-		void detectType();
-		void convertToAllTypes();
+		void isInfNan();
+		void isChar();
+		void isNum();
+		void printFloat(std::ostream & os) const;
+		void printDouble(std::ostream & os) const;
+		void printChar(std::ostream & os) const;
+		void printInt(std::ostream & os) const;
 		class InvalidConversionException : virtual public std::exception
 		{
 			private:
@@ -41,3 +41,4 @@ class Convertor
 		};
 };
 #endif
+std::ostream & operator<<(std::ostream &os, Convertor const & toPrint);
