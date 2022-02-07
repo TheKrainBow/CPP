@@ -4,6 +4,7 @@
 # include <cstdlib>
 # include <iostream>
 # include <iomanip>
+# include <limits>
 
 class Convertor  
 {
@@ -25,6 +26,8 @@ class Convertor
 		Convertor(char *str);
 		void isInfNan();
 		void isChar();
+		void isFloat();
+		void isDouble();
 		void isNum();
 		void printFloat(std::ostream & os) const;
 		void printDouble(std::ostream & os) const;

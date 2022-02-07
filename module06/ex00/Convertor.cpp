@@ -8,6 +8,8 @@ Convertor::Convertor(char *str) : _str(str), _c(0), _i(0), _f(0.0f), _d(0.0), _i
 {
 	isInfNan();
 	isChar();
+	isFloat();
+	isDouble();
 	isNum();
 	return ;
 }
@@ -15,24 +17,54 @@ Convertor::~Convertor() {}
 
 void Convertor::isChar()
 {
-	if (std::isprint(_str[0]) && !std::isdigit(_str[0]) && _str.length() == 1)
-	{
-		_c = _str[0];
-		_i = static_cast<int>(_c);
-		_f = static_cast<float>(_c);
-		_d = static_cast<double>(_c);
-		_converted = true;
-	}
+	if (!(std::isprint(_str[0]) && !std::isdigit(_str[0]) && _str.length() == 1))
+		return ;
+	_c = _str[0];
+	_i = static_cast<int>(_c);
+	_f = static_cast<float>(_c);
+	_d = static_cast<double>(_c);
+	_converted = true;
+}
+
+void Convertor::isFloat()
+{
+	if (_converted || _str.find('.') == std::string::npos || _str.find('f') != _str.length() - 1)
+		return ;
+	_f = std::strtof(_str.c_str(), NULL);
+	if (_f == std::numeric_limits<float>::infinity())
+		_i = std::numeric_limits<int>::max();
+	else
+		_i = static_cast<int>(_f);
+	_d = static_cast<double>(_f);
+	_c = static_cast<char>(_f);
+	_converted = true;
+}
+
+void Convertor::isDouble()
+{
+	if (_converted || _str.find('.') == std::string::npos)
+		return ;
+	_d = std::strtod(_str.c_str(), NULL);
+	if (_d > std::numeric_limits<int>::infinity())
+		_i = std::numeric_limits<int>::max();
+	else
+		_i = static_cast<int>(_d);
+	_f = static_cast<float>(_d);
+	_c = static_cast<char>(_d);
+	_converted = true;
 }
 
 void Convertor::isNum()
 {
 	if (_converted)
 		return ;
-	_d = std::strtod(_str.c_str(), NULL);
-	_i = static_cast<int>(_d);
-	_f = static_cast<float>(_d);
-	_c = static_cast<char>(_d);
+	if (_str.length() <= 12)
+		_i = std::atoi(_str.c_str());
+	else
+		throw InvalidConversionException("Int is out of range!");
+	_d = static_cast<double>(_i);
+	_f = static_cast<float>(_i);
+	_c = static_cast<char>(_i);
 	_converted = true;
 }
 
@@ -100,9 +132,9 @@ void Convertor::printInt(std::ostream & os) const
 	if (_nan)
 		os << "impossible";
 	else if (_inf == 1)
-		os << "2147483647";
+		os << "2147483647"; // Couldv print impossible!
 	else if (_inf == -1)
-		os << "-2147483647";
+		os << "-2147483648"; // Couldv print impossible!
 	else
 		os << _i;
 	return ;
