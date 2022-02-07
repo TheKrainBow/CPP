@@ -1,10 +1,15 @@
 #include <iostream>
-#include "span.hpp"
+#include "Span.hpp"
 
 int		main(void) {
 	int		size = 10000;
-	span n(size);
+	Span n(size);
+	std::vector<int> test;
 
+	test.push_back(42);
+	test.push_back(4242);
+	test.push_back(424242);
+	test.push_back(42424242);
 	srand(time(0));
 	try
 	{
@@ -24,7 +29,7 @@ int		main(void) {
 	{
 		std::cerr << e.what() << '\n';
 	}
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		try
 		{
@@ -35,7 +40,8 @@ int		main(void) {
 			std::cerr << e.what() << '\n';
 		}
 	}
-	//n.printArray();
+	n.addNumber(test.begin(), test.end());
+	n.printArray();
 	std::cout << "Longest Span is " << n.longestSpan() << std::endl;
 	std::cout << "Shortest Span is " << n.shortestSpan() << std::endl;
 	return (0);

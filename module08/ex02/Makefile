@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g
 
 NAME = Module08
 
-SRC = main.cpp Span.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -5,22 +5,26 @@
 #include <cstdlib>
 #include <vector>
 
-class span  
+class Span  
 {
 	private:
 		unsigned int 		_sizemax;
 		std::vector<int>	_array;
 	public:
+		Span();
+		~Span();
+		Span(Span &toCopy);
+		Span &operator=(Span &toCopy);
+
+		Span(unsigned int n);
 		void addNumber(int n);
-		span(unsigned int n);
-		~span();
+		void addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite);
 		int	shortestSpan(void);
 		int	longestSpan(void);
 		void printArray(void);
 		class MaxNumberLimitException : public std::exception {
 			virtual const char* what() const throw ();
 		};
-
 		class TooSmallArrayException : public std::exception {
 			virtual const char *what() const throw ();
 		};
