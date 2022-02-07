@@ -4,8 +4,7 @@
 template <typename T>
 void iter(T *array, int lenght, T (*function)(T))
 {
-	int i = -1;
-	while (array && ++i < lenght)
+	for (int i = 0; array && i < lenght ; i++)
 		array[i] = function(array[i]);
 }
 

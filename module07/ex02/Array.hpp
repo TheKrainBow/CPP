@@ -12,11 +12,6 @@ class Array
 	public:
 		// CONSTRUCTORS / DESTRUCTORS
 		Array() : _size(0), _array(new T[_size]) {};
-		Array(int size) : _size(size), _array(new T[_size])
-		{
-			for (int i = 0; i < _size; i++)
-				_array[i] = 0;
-		}
 		Array(const Array &toCopy) : _size(toCopy._size), _array(new T[_size])
 		{
 			*this = toCopy;
@@ -29,6 +24,11 @@ class Array
 		}
 		~Array() {delete [] _array;};
 
+		Array(int size) : _size(size), _array(new T[_size])
+		{
+			for (int i = 0; i < _size; i++)
+				_array[i] = 0;
+		}
 		// EXCEPTIONS
 		class OutOfArray : public virtual std::exception
 		{
@@ -41,9 +41,18 @@ class Array
 		};
 
 		// OPERATORS
-		T &operator[](int idx) {if (idx > _size) throw OutOfArray("Index is out of Array!\n"); return _array[idx];}
-		const T &operator[](int idx) const {return _array[idx];}
-
+		T &operator[](int idx)
+		{
+			if (idx >= _size || idx < 0)
+				throw OutOfArray("Index is out of Array!");
+			return _array[idx];
+		}
+		const T &operator[](int idx) const 
+		{
+			if (idx >= _size || idx < 0)
+				throw OutOfArray("Index is out of Array!");
+			return _array[idx];
+		}
 		// FUNCTIONS
 		int size(void)
 		{
