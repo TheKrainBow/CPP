@@ -20,6 +20,6 @@
 - ✅ Module03
 - ✅ Module04
 - ✅ Module05
-- ❌ Module06
-- ❌ Module07
+- ✅ Module06
+- ✅ Module07
 - ❌ Module08
