@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:25:05 by magostin          #+#    #+#             */
-/*   Updated: 2022/02/06 17:03:09 by magostin         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:11:16 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,21 +79,4 @@ int main(void)
 	std::cout << std::endl << "🌀   Subject Test   🌀" << std::endl;
 	SubjectTest();
 	std::cout << std::endl << "🎮  End of tests  🎮\033[37m" << std::endl;
-	/*try
-	{
-		Bureaucrat tom("Tom", 3);
-		Bureaucrat henry("Henry", 5);
-		std::cout << tom;
-		std::cout << henry;
-		henry.upGrade();
-		std::cout << henry;
-	}
-	catch (Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << e.what();
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << e.what();
-	};*/
 }

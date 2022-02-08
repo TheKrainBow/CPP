@@ -13,8 +13,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
--include $(DEP)
 
+-include $(DEP)
 %.o: %.cpp
 				$(CXX) $(CXXFLAGS) -o $@ -c $<
 

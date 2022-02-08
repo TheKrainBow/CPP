@@ -4,11 +4,15 @@
 
 Span::Span(unsigned int n) : _sizemax(n) {}
 Span::Span() : _sizemax(0) {}
-Span::Span(Span &toCopy) : _sizemax(toCopy._sizemax) { *this = toCopy; }
+Span::Span(const Span &toCopy) : _sizemax(toCopy._sizemax)
+{ 
+	*this = toCopy;
+}
+
 Span::~Span() {}
-Span &Span::operator=(Span &toCopy)
+Span &Span::operator=(const Span &toCopy)
 {
-	for (std::vector<int>::iterator first = toCopy._array.begin(); first < _array.end(); first++)
+	for (std::vector<int>::const_iterator first = toCopy._array.begin(); first < _array.end(); first++)
 		addNumber(*first);
 	return (*this);
 }

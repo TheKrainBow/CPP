@@ -13,8 +13,8 @@ class Span
 	public:
 		Span();
 		~Span();
-		Span(Span &toCopy);
-		Span &operator=(Span &toCopy);
+		Span(const Span &toCopy);
+		Span &operator=(const Span &toCopy);
 
 		Span(unsigned int n);
 		void addNumber(int n);

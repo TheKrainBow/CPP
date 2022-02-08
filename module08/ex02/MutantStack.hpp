@@ -14,10 +14,16 @@ class MutantStack: public std::stack<T>
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		iterator begin();
 		iterator end();
+		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+		const_iterator cbegin() const;
+		const_iterator cend() const;
 
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 		reverse_iterator rbegin();
 		reverse_iterator rend();
+		typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+		const_reverse_iterator crbegin() const;
+		const_reverse_iterator crend() const;
 };
 
 template <typename T>
@@ -36,23 +42,19 @@ MutantStack<T> &MutantStack<T>::operator=(MutantStack<T> const &toCopy) {
 }
 
 template <typename T>
-typename MutantStack<T>::iterator begin() {
-	return (std::stack<T>::c.begin());
-}
-
+typename MutantStack<T>::iterator MutantStack<T>::begin() { return (std::stack<T>::c.begin()); }
 template <typename T>
-typename MutantStack<T>::iterator end() {
-	return (std::stack<T>::c.end());
-}
-
+typename MutantStack<T>::iterator MutantStack<T>::end() { return (std::stack<T>::c.end()); }
 template <typename T>
-typename MutantStack<T>::reverse_iterator rbegin() {
-	return (std::stack<T>::c.rbegin());
-}
-
+typename MutantStack<T>::reverse_iterator MutantStack<T>::rbegin() { return (std::stack<T>::c.rbegin()); }
 template <typename T>
-typename MutantStack<T>::reverse_iterator rend() {
-	return (std::stack<T>::c.rend());
-}
-
+typename MutantStack<T>::reverse_iterator MutantStack<T>::rend() { return (std::stack<T>::c.rend()); }
+template <typename T>
+typename MutantStack<T>::const_iterator MutantStack<T>::cbegin() const { return (static_cast<const T>(std::stack<T>::c.begin())); }
+template <typename T>
+typename MutantStack<T>::const_iterator MutantStack<T>::cend() const { return (static_cast<const T>(std::stack<T>::c.end())); }
+template <typename T>
+typename MutantStack<T>::const_reverse_iterator MutantStack<T>::crbegin() const { return (static_cast<const T>(std::stack<T>::c.rbegin())); }
+template <typename T>
+typename MutantStack<T>::const_reverse_iterator MutantStack<T>::crend() const { return (static_cast<const T>(std::stack<T>::c.rend())); }
 #endif
