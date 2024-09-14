@@ -4,25 +4,22 @@
 int		main(void) {
 	std::vector<int> my_vector;
 	std::list<int> my_list;
-	int g;
 
-	//vector --> should output 2
-	for (size_t i = 0; i < 5; i++)
+	//vector --> should output "Int found"
+	for (int i = 0; i < 5; i++)
 		my_vector.push_back(i);
-	g = easyfind(my_vector, 2);
-	if (g == -1)
-		std::cout << "Int wasn't found" << std::endl;
+	if (easyfind(my_vector, 2))
+		std::cout << "Int found" << std::endl;
 	else
-		std::cout << g << std::endl;
+		std::cout << "Int not found" << std::endl;
 
-	//list --> should output "Int wasn't found"
-	for (size_t i = 0; i < 10; i++)
+	//list --> should output "Int not found"
+	for (int i = 0; i < 10; i++)
 		my_list.push_back(i * 2);
-	g = easyfind(my_list, 9);
-	if (g == -1)
-		std::cout << "Int wasn't found" << std::endl;
+	if (easyfind(my_list, 9))
+		std::cout << "Int found" << std::endl;
 	else
-		std::cout << g << std::endl;
+		std::cout << "Int not found" << std::endl;
 	
 	return (0);
 }

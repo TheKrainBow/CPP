@@ -1,25 +1,23 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -fsanitize=address -g
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME = Module08
 
 SRC = main.cpp Span.cpp
 
 OBJ = $(SRC:.cpp=.o)
-DEP = $(SRC:.cpp=.d)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
--include $(DEP)
 
 %.o: %.cpp
 				$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-				rm -rf $(OBJ) $(DEP)
+				rm -rf $(OBJ)
 
 fclean: clean
 				rm -rf $(NAME)
