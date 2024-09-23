@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 09:22:21 by magostin          #+#    #+#             */
-/*   Updated: 2024/09/16 10:36:55 by magostin         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:43:29 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ int main(int ac, char **av)
 
 	try
 	{
-		if (ac != 2)
-			throw std::exception();
+		if (ac == 1)
+			throw RPN::RPNException("Not enough arguments");
+		if (ac >= 3)
+			throw RPN::RPNException("Too many arguments");
 		std::cout << calculator.handleOperation(av[1]) << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(RPN::RPNException &e)
 	{
-		std::cerr << "Error" << std::endl;
+		std::cerr << BRED << "Error" << RED << ": " << e.what() << std::endl;
 	}
 	
 }

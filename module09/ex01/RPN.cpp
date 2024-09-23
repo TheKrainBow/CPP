@@ -14,7 +14,7 @@ int RPN::handleOperation(std::string op)
 			if (_data.size() < 2)
 			{
 				_data.empty();
-				throw std::exception();
+				throw RPNException("Stack has less than two number when receiving an operation");
 			}
 			int first = _data.top();
 			_data.pop();
@@ -32,13 +32,13 @@ int RPN::handleOperation(std::string op)
 		else
 		{
 			_data.empty();
-			throw std::exception();
+			throw RPNException("Invalid character");
 		}
 	}
 	if (_data.size() != 1)
 	{
 		_data.empty();
-		throw std::exception();
+		throw RPNException("Stack not empty after processing every arguments");
 	}
 	int dest = _data.top();
 	_data.empty();
@@ -62,4 +62,9 @@ RPN::RPN()
 
 RPN::~RPN()
 {
+}
+
+const char *RPN::RPNException::what() const throw()
+{
+	return (error_message.c_str());
 }
