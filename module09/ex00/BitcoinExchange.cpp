@@ -6,13 +6,12 @@ void BitcoinExchange::initDB(void)
     std::ifstream fichier(DB_PATH);
 
     if (!fichier.is_open()) {
-        std::cerr << "Erreur: Impossible d'ouvrir le fichier " << DB_PATH << std::endl;
-        return ;
+        throw std::exception();
     }
-	std::string ligne;
-    std::getline(fichier, ligne);
-    while (std::getline(fichier, ligne)) {
-        std::stringstream ss(ligne);
+	std::string line;
+    std::getline(fichier, line);
+    while (std::getline(fichier, line)) {
+        std::stringstream ss(line);
         std::string date;
         std::string tauxStr;
         float taux;
@@ -29,34 +28,41 @@ void BitcoinExchange::initDB(void)
 void BitcoinExchange::parseFile(std::ifstream &file)
 {
     if (!file.is_open()) {
-        std::cerr << "Error: could not open file." << std::endl;
+        std::cerr << BRED << "Error" << RED << ": could not open file." << WHITE << std::endl;
         return ;
     }
-	std::string ligne;
-    std::getline(file, ligne);
-    while (std::getline(file, ligne)) {
-        std::stringstream ss(ligne);
+	std::string line;
+    std::getline(file, line);
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
         std::string date;
         std::string amountStr;
         float amount;
 
+        if (!line.size())
+            continue;
         std::getline(ss, date, '|');
         std::getline(ss, amountStr);
 		if (amountStr.size() == 0)
 		{
-			std::cerr << "Error: Bad input => " << date << std::endl;
+			std::cerr << BRED << "Error" << RED << ": Bad input => " << WHITE << date << WHITE << std::endl;
+			continue ;
+		}
+		if (date.size() == 0)
+		{
+			std::cerr << BRED << "Error" << RED << ": Missing date" << WHITE << std::endl;
 			continue ;
 		}
         std::istringstream amountStream(amountStr);
         amountStream >> amount;
 		if (amount < 0)
 		{
-			std::cerr << "Error: not a positive number." << std::endl;
+			std::cerr << BRED << "Error" << RED << ": Not a positive number." << WHITE << std::endl;
 			continue ;
 		}
 		if (amount > 1000)
 		{
-			std::cerr << "Error: too large number." << std::endl;
+			std::cerr << BRED << "Error" << RED << ": Too large number." << WHITE << std::endl;
 			continue ;
 		}
 		std::cout << date << "=> " << amount << " = " << findRate(date) * amount << std::endl;
@@ -78,7 +84,7 @@ float BitcoinExchange::findRate(const std::string &date) {
 
 BitcoinExchange::BitcoinExchange()
 {
-	initDB();
+    initDB();
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange &toCopy)

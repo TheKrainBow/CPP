@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "Color.hpp"
 
 #define DB_PATH "./data.csv"
 
